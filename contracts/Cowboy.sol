@@ -109,11 +109,11 @@
 
 pragma solidity ^0.8.4;
 
-import "../node_modules/erc721a/contracts/ERC721A.sol";
-import "../node_modules/@openzeppelin/contracts/utils/Address.sol";
-import "../node_modules/@openzeppelin/contracts/utils/Strings.sol";
-import "../node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
-import "../node_modules/@openzeppelin/contracts/access/Ownable.sol";
+import "erc721a/contracts/ERC721A.sol";
+import "@openzeppelin/contracts/utils/Address.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 interface IERC2981Royalties {
     function royaltyInfo(uint256 _tokenId, uint256 _value)
@@ -182,7 +182,7 @@ contract Cowboys is ERC721A, IERC2981Royalties, Ownable {
         override
         returns (address receiver, uint256 royaltyAmount)
     {
-        return (_treasuryAddress, value * (royaltyPercentage / 100));
+        return (_treasuryAddress, value * royaltyPercentage / 100);
     }
 
     function setTreasuryAddres(address treasuryAddress) public onlyOwner {
