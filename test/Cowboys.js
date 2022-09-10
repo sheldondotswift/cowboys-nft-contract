@@ -6,7 +6,7 @@ describe('Cowboys Contract Tests', async function () {
     let price;
     it('Deployment', async function () {
         [owner, addr1, addr2] = await ethers.getSigners();
-        Cowboys = await ethers.getContractFactory('Cowboys');
+        Cowboys = await ethers.getContractFactory('SpaceCowboys');
 
         cowboys = await Cowboys.deploy(owner.address);
 
@@ -39,7 +39,7 @@ describe('Cowboys Contract Tests', async function () {
     });
 
     it('Mint cowboy for own address', async function () {
-        Cowboys = await ethers.getContractFactory('Cowboys');
+        Cowboys = await ethers.getContractFactory('SpaceCowboys');
 
         cowboys = await Cowboys.deploy(owner.address);
 

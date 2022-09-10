@@ -122,7 +122,7 @@ interface IERC2981Royalties {
         returns (address _receiver, uint256 _royaltyAmount);
 }
 
-contract Cowboys is ERC721A, IERC2981Royalties, Ownable {
+contract SpaceCowboys is ERC721A, IERC2981Royalties, Ownable {
     using Address for address;
     using Strings for uint256;
     using ECDSA for bytes32;
@@ -140,7 +140,7 @@ contract Cowboys is ERC721A, IERC2981Royalties, Ownable {
     bool public revealed = false;
 
     constructor(address treasuryAddress)
-        ERC721A("Freescape Cowboys", "COWBOYS")
+        ERC721A("Space Cowboys", "COWBOYS")
     {
         _treasuryAddress = treasuryAddress;
     }
